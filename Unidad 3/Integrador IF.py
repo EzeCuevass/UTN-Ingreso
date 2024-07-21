@@ -8,35 +8,33 @@ message += f"La cantidad comprada es {cantidad}\n"
 message += f"El precio sin descuento es de ${precio}\n"
 
 descuento_adicional = 0
-precio_descuento = 0
+porcentaje = 0
 
 if cantidad >= 6:
-    precio_descuento = (precio * 50/100)
+    porcentaje = 50
 elif cantidad == 5:
     if marca == "ArgentinaLuz":
-        precio_descuento = (precio * 40/100)
+        porcentaje = 40
     else:
-        precio_descuento = (precio * 30/100)
+        porcentaje = 30
 elif cantidad == 4:
     if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-        precio_descuento = (precio * 25/100)
+        porcentaje = 25
     else:
-        precio_descuento = (precio * 20/100)
+        porcentaje = 20
 elif cantidad == 3:
     if marca == "ArgentinaLuz":
-        precio_descuento = (precio * 15/100)
+        porcentaje = 15
     elif marca == "FelipeLamparas":
-        precio_descuento = (precio * 10/100)
+        porcentaje = 10
     else:
-        precio_descuento = (precio * 5/100)
-else:
-    precio_descuento = 0
+        porcentaje = 5
 
 total = precio
+precio_descuento = precio * porcentaje/100
 
 if precio_descuento >= 4000:
     descuento_adicional = total * 5/100
-    
 
 if precio_descuento > 0:
     total = total - precio_descuento
